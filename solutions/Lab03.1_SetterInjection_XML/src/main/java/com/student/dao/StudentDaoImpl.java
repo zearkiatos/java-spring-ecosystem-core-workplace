@@ -4,8 +4,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.student.core.Student;
 
+@Component
 public class StudentDaoImpl implements StudentDao {
  
 	private Map<Long, Student> students;
