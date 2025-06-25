@@ -2,24 +2,25 @@ package com.student.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.student.config.ApplicationConfig;
 import com.student.core.Student;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import javax.inject.Inject;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = ApplicationConfig.class)
 public class StudentServiceTest {
 	
-	private AnnotationConfigApplicationContext context;
+	@Inject
 	private StudentService service;
-
-	@BeforeEach
-	void setUp() {
-		context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-		service =  context.getBean("studentService", StudentService.class);
-	}
 	
  
 	@Test
