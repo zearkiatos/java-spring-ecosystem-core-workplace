@@ -11,11 +11,9 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.student.core.Student;
 import com.student.dao.StudentDao;
-@Named(value = "studentService")
+
 public class StudentServiceImpl implements StudentService {
-	@Resource(name = "studentDaoImpl")
 	private StudentDao studentDao;
-	@Value("2")
 	private int numberOfStudents;
 	@Override
 	public Student get(long id) {
